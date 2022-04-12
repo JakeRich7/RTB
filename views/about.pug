@@ -1,0 +1,16 @@
+extends layout
+
+append head
+  link(rel="stylesheet" href="stylesheets/about.css")
+  link(rel="stylesheet" href="stylesheets/index.css")
+  link(rel="stylesheet" href="stylesheets/user-main.css")
+  link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito")
+  script(src="/javascripts/user-main.js" type="module" defer)
+
+block content
+  div(class='about-div')
+    img(class="jake-image" src="jake-about.jpg", alt="pic of me")
+    div(class="about-me") I love to code, play music, eat, sleep, workout, hike, and birdwatch! I feel especially passionate about educating people on how to raise their quality of life and boldly pursue their dreams.
+    div(class="about-links")
+      a(class='github' href='https://github.com/JakeRich7/RTB' target="_blank" rel="noreferrer") GitHub
+      a(class='linkedin' href='https://www.linkedin.com/in/jacob-richardson-73440518/' target="_blank" rel="noreferrer") LinkedIn

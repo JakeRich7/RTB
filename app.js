@@ -10,6 +10,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const listsRouter = require('./routes/lists');
 const tasksRouter = require('./routes/tasks');
+const aboutRouter = require('./routes/about');
 const { restoreUser } = require('./routes/utils');
 const bcrypt = require('bcryptjs');
 
@@ -45,10 +46,12 @@ store.sync();
 app.use((req, res, next) => {
   next();
 })
+app.use('/about', aboutRouter);
 app.use('/:userId(\\d+)', usersRouter);
 app.use('/lists', listsRouter);
-app.use('/tasks', tasksRouter)
+app.use('/tasks', tasksRouter);
 app.use('/', indexRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

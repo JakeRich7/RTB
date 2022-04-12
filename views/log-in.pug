@@ -1,0 +1,48 @@
+
+doctype html
+html
+  head
+    link(rel="icon" type="image/png" href="https://icons-for-free.com/iconfiles/png/512/bread+bread+loaf+food+toast+icon-1320168012160404253.png")
+    link(rel="stylesheet" href="stylesheets/log-in.css")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito")
+    script(src="/javascripts/sign-up.js" type="module" defer)
+  body
+    div(class='right-side')
+      ul(class='buttons')
+        if !locals.authenticated
+          li: a(class="sign-button" href="/sign-up") Sign up for free
+        if locals.authenticated
+          li: a(href="/log-out") Logout
+      div(class="form-div")
+      div(class='sign-up-sentence')
+        form(action="/log-in" method="post")
+          div(class="login-sentence") Been here before? Welcome back!
+          input(type="hidden" name="_csrf" value=csrfToken)
+          label(for="email")
+          input(type="text" name="email" value=email placeholder="Email")
+          div(class="error-msg")
+            each error in errors
+              -if(error.includes("Please provide an email address"))
+                p(class="error-text")= error
+          div(class="error-msg")
+            each error in errors
+              -if(error.includes("Email Address is not a valid email"))
+                p(class="error-text")= error
+          label(for="password")
+          input(type="password" name="password" placeholder="Password")
+          div(class="error-msg")
+            each error in errors
+              -if(error.includes("Please provide a password"))
+                p(class="error-text")= error
+          button(type="submit") Login
+
+    main(class='left-side')
+      div(class='bread-pic')
+        a(class="bread-anchor" href="/"): img(class="bread-image" src="https://icons-for-free.com/iconfiles/png/512/bread+bread+loaf+food+toast+icon-1320168012160404253.png")
+        a(class="nav-title" href="/") Remember the Bread
+      div(class="quote")
+        h1 “The essence of being human is that one does not seek perfection.”
+        h2(class="faded-quote") - George Orwell
+        div(class="monkey-div")
+          img(class="monkey" src="https://www.rememberthemilk.com/img/avatar_bob_60.png?1587967172")
+          p(class="monkey-quote") Quotes curated by Bob T. Monkey, renowned productivity expert

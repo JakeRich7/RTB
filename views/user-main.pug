@@ -1,0 +1,65 @@
+extends layout
+
+append head
+  link(rel="stylesheet" href="stylesheets/user-main.css")
+  link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito")
+  script(src="/javascripts/user-main.js" type="module" defer)
+
+
+block content
+  h1(class='welcome') Welcome, #{user.firstName}
+
+
+  div(class='modal')
+    div(class='modal-content')
+      span(class='close-button')
+      div(class="modal-title")
+        p(class='firstP') Add List
+        p(class='enter-list-name enter-task-name') Please enter a new list name:
+        form(action=`/lists` method='post' class='modal-form')
+          input(type='hidden' name='_csrf' value=csrfToken)
+          input(type='text' class="input-list-name" placeHolder='Type something...')
+          div(class='modal-content-buttons')
+            button(type='submit' class='add-list-button') Add List
+            button(class='cancel-button') Cancel
+
+
+  div(class="tasks-div")
+    ul(class="tasks_summary")
+      each task in tasksObj
+        li(class='task-list-item')= task.task
+
+    div(class='add-task-div')
+      p(class='task-p') Tasks
+      form(action="/tasks" class="form-task" method="post")
+        input(type="text" name="task" class="task-input")
+        button(type="submit" class="button-task") Add Task
+
+  div(class='lists-task-lines')
+    div(class='list-div')
+        button(class='modal-button') Create List
+        div(class='all-list-items')
+          ul(class="list_summary")
+            p(class='lists-p') Lists
+            li(class='allTasks' style={background: 'grey', opacity: '.6', padding: '5px', "border-radius": '10px'}) All Tasks
+            each list in listsObj
+              li(class='list-listItem')= list.name
+
+    div(class='notepad-lines')
+      //- div(class='task-lines')
+      div(class='line line1')
+      div(class='line line2')
+      div(class='line line3')
+      div(class='line line4')
+      div(class='line line5')
+      div(class='line line6')
+      div(class='line line7')
+      div(class='line line8')
+      div(class='line line9')
+      div(class='line line10')
+      div(class='line line11')
+      div(class='line line12')
+      div(class='line line13')
+      div(class='line line14')
+      div(class='line line15')
+      div(class='line line16')

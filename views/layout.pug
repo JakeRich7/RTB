@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+      block head
+        link(rel="icon" type="image/png" href="https://icons-for-free.com/iconfiles/png/512/bread+bread+loaf+food+toast+icon-1320168012160404253.png")
+        link(rel='stylesheet' href='/stylesheets/reset.css')
+        link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito")
+        script(src="/javascripts/demo.js" type="module")
+  body
+      div(class='nav-bar-div')
+        div(class='bread-pic')
+          a(class="bread-anchor" href="/"): img(class="bread-image" src="https://icons-for-free.com/iconfiles/png/512/bread+bread+loaf+food+toast+icon-1320168012160404253.png")
+          a(class="nav-title" href="/") Remember the Bread
+        div(class="button-div")
+          ul(class='buttons')
+            if !locals.authenticated
+              li: a(class="login-button" href="/log-in") Log in
+              li: a(class="demo-user-button" href="/demo") Demo User
+              li: a(class="sign-button" href="/sign-up") Sign up for free
+            if locals.authenticated
+              li: a(class='log-out' href="/log-out") Logout
+
+block content

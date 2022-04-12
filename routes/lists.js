@@ -91,12 +91,14 @@ router.put('/', asyncHandler(async (req, res, next) => {
 router.delete('/', asyncHandler(async (req, res, next) => {
   const target = req.body.listInnerText;
 
-  await db.List.destroy({
+  let item = await db.List.findOne({
     where: {
-      name: {
-        [Op.eq]: target
-      }
+      name: target
     }
+  })
+
+  await db.List.destroy({
+    where: { id: item.id }
   });
 
   res.json({ message: 'Success' })

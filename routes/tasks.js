@@ -41,12 +41,14 @@ router.post('/', asyncHandler(async (req, res, next) => {
 router.delete('/', asyncHandler(async (req, res, next) => {
   const target = req.body.listInnerText;
 
-  await db.Task.destroy({
+  let item = await db.Task.findOne({
     where: {
-      task: {
-        [Op.eq]: target
-      }
+      task: target
     }
+  })
+
+  await db.Task.destroy({
+    where: { id: item.id }
   });
 
   res.json({ message: 'Success' })

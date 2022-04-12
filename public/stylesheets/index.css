@@ -9,8 +9,16 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
     padding: 45px;
     border-bottom: solid rgba(0, 0, 0, 0.048) 1px;
+}
+
+.about-anchor {
+  text-decoration: none;
+  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+  padding: 5px 10px;
+  border-radius: 10px;
 }
 
 .bread-pic {

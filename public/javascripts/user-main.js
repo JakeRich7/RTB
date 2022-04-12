@@ -13,12 +13,8 @@ let currentList = 'All Tasks';
 
 let listDeleter = async (event) => {
   const listChildren = Array.from(event.target.parentNode.childNodes);
-  listChildren.forEach(ele => {
-    if (ele.innerText !== 'edit' && ele.innerText !== 'delete') {
-      listInnerText = ele.innerText;
-      listInner = ele;
-    }
-  })
+  listInnerText = listChildren[0].innerText;
+  listInner = listChildren[0];
   const res = await fetch('/lists', {
     method: "DELETE",
     headers: {
@@ -73,12 +69,8 @@ window.addEventListener("DOMContentLoaded", () => {
         modalAddButton.removeEventListener('click', taskPut);
         modalAddButton.addEventListener('click', listPut);
         const listChildren = Array.from(e.target.parentNode.childNodes);
-        listChildren.forEach(ele => {
-          if (ele.innerText !== 'edit' && ele.innerText !== 'delete') {
-            listInnerText = ele.innerText;
-            listInner = ele;
-          }
-        })
+        listInnerText = listChildren[0].innerText;
+        listInner = listChildren[0];
       }
       toggleModal();
     })
@@ -256,12 +248,8 @@ let listPut = async (event) => {
         modalAddButton.removeEventListener('click', taskPut);
         modalAddButton.addEventListener('click', listPut);
         const listChildren = Array.from(e.target.parentNode.childNodes);
-        listChildren.forEach(ele => {
-          if (ele.innerText !== 'edit' && ele.innerText !== 'delete') {
-            listInnerText = ele.innerText;
-            listInner = ele;
-          }
-        })
+        listInnerText = listChildren[0].innerText;
+        listInner = listChildren[0];
       }
       toggleModal();
     })
@@ -345,12 +333,8 @@ let listPost = async (event) => {
         modalAddButton.removeEventListener('click', taskPut);
         modalAddButton.addEventListener('click', listPut);
         const listChildren = Array.from(e.target.parentNode.childNodes);
-        listChildren.forEach(ele => {
-          if (ele.innerText !== 'edit' && ele.innerText !== 'delete') {
-            listInnerText = ele.innerText;
-            listInner = ele;
-          }
-        })
+        listInnerText = listChildren[0].innerText;
+        listInner = listChildren[0];
       }
       toggleModal();
     })

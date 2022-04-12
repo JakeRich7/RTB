@@ -418,12 +418,8 @@ let taskPut = async (event) => {
           modalAddButton.addEventListener('click', taskPut);
         }
         const listChildren = Array.from(e.target.parentNode.childNodes);
-        listChildren.forEach(ele => {
-          if (ele.innerText !== 'edit' && ele.innerText !== 'delete') {
-            listInnerText = ele.innerText;
-            listInner = ele;
-          }
-        })
+        listInnerText = listChildren[0].innerText;
+        listInner = listChildren[0];
         toggleModal();
       })
     })
@@ -487,12 +483,8 @@ window.addEventListener("DOMContentLoaded", () => {
         modalAddButton.addEventListener('click', taskPut);
       }
       const listChildren = Array.from(e.target.parentNode.childNodes);
-      listChildren.forEach(ele => {
-        if (ele.innerText !== 'edit' && ele.innerText !== 'delete') {
-          listInnerText = ele.innerText;
-          listInner = ele;
-        }
-      })
+      listInnerText = listChildren[0].innerText;
+      listInner = listChildren[0];
       toggleModal();
     })
   })
@@ -500,12 +492,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
 let taskDeleter = async (event) => {
   const listChildren = Array.from(event.target.parentNode.childNodes);
-  listChildren.forEach(ele => {
-    if (ele.innerText !== 'edit' && ele.innerText !== 'delete') {
-      listInnerText = ele.innerText;
-      listInner = ele;
-    }
-  })
+  listInnerText = listChildren[0].innerText;
+  listInner = listChildren[0];
   const res = await fetch('/tasks', {
     method: "DELETE",
     headers: {
@@ -579,12 +567,8 @@ taskButton.addEventListener('click', async (event) => {
           modalAddButton.addEventListener('click', taskPut);
         }
         const listChildren = Array.from(e.target.parentNode.childNodes);
-        listChildren.forEach(ele => {
-          if (ele.innerText !== 'edit' && ele.innerText !== 'delete') {
-            listInnerText = ele.innerText;
-            listInner = ele;
-          }
-        })
+        listInnerText = listChildren[0].innerText;
+        listInner = listChildren[0];
         toggleModal();
       })
     })
@@ -596,8 +580,7 @@ taskButton.addEventListener('click', async (event) => {
     newButtonEdit.style.color = 'white';
     newButtonEdit.style.backgroundColor = '#009DFF';
     newButtonEdit.style.border = 'solid #009DFF 1px';
-    newButtonEdit.style.borderRadius = '5px'
-    // newButtonEdit.classList.add('list-text');
+    newButtonEdit.style.borderRadius = '5px';
 
     newButtonDelete.style.padding = '5px';
     newButtonDelete.style.marginLeft = '5px';

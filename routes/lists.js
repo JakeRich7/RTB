@@ -97,6 +97,12 @@ router.delete('/', asyncHandler(async (req, res, next) => {
     }
   })
 
+  await db.Task.destroy({
+    where: {
+      list_id: item.id
+    }
+  })
+
   await db.List.destroy({
     where: { id: item.id }
   });

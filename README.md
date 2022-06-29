@@ -23,7 +23,7 @@ Remember The Bread is built on a React frontend with an Express backend, using P
 ## Setup Remember the Bread
 
 1. Clone the repo
-  *  `git clone https://github.com/lucascostamonteiro/RememberTheBread`
+  *  `git clone https://github.com/JakeRich7/RTB`
 
 2. Install dependencies from the root directory.
   *  `npm install`
